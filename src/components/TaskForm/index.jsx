@@ -1,9 +1,8 @@
-import todoLogo from '../../assets/todoLogo.svg';
-import styles from './header.module.css';
+import styles from './TaskForm.module.css';
 import { AiOutlinePlusCircle } from 'react-icons/ai';
 import { useState } from 'react';
 
-export function Header({ handleAddTask}) {
+export function TaskForm({ handleAddTask}) {
   const [title, setTitle] = useState('');
 
 
