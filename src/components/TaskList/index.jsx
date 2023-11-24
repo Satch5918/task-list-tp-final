@@ -1,11 +1,29 @@
 import styles from './TaskList.module.css';
 import { BsFillCheckCircleFill } from 'react-icons/bs';
 import { TbTrash } from 'react-icons/tb';
+import Swal from 'sweetalert2'
 
 export function TaskList({ task, onDelete, onComplete }) {
+  
+  const alert = () => {
+    Swal.fire({
+      title: "Tarea Completada",
+      icon: "success"
+    });
+    onComplete(task.id)
+  }
+
+  const deleteTask = () => {
+    Swal.fire({
+      title: "Tarea Eliminada",
+      icon: "success"
+    });
+    onDelete(task.id)
+  }
+
   return (
     <div className={styles.task}>
-      <button className={styles.checkContainer} onClick={() => onComplete(task.id)}>
+      <button className={styles.checkContainer} onClick={alert}>
         {task.isCompleted ? <BsFillCheckCircleFill /> : <div />}
       </button>
 
@@ -13,8 +31,8 @@ export function TaskList({ task, onDelete, onComplete }) {
         {task.title}
       </p>
 
-      <button className={styles.deleteButton} onClick={() => onDelete(task.id)}>
-        <TbTrash size={20} />
+      <button className={styles.deleteButton} onClick={deleteTask}>
+        <TbTrash size={25} />
       </button>
     </div>
   )
