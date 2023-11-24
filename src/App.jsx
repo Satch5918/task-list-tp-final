@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { Header } from "./components/Header";
-import { Tasks } from "./components/Tasks";
+import { TaskForm } from "./components/TaskForm";
+import { TaskItem } from "./components/TaskItem";
 
 const LOCAL_STORAGE_KEY = 'todo:tasks';
 
@@ -51,8 +51,8 @@ function App() {
 
   return (
     <>
-      <Header handleAddTask={addTask} />
-      <Tasks
+      <TaskForm handleAddTask={addTask} />
+      <TaskItem
         tasks={tasks}
         onDelete={deleteTaskById}
         onComplete={toggleTaskCompletedById}

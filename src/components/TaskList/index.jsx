@@ -1,8 +1,8 @@
-import styles from './task.module.css';
+import styles from './TaskList.module.css';
 import { BsFillCheckCircleFill } from 'react-icons/bs';
 import { TbTrash } from 'react-icons/tb';
 
-export function Task({ task, onDelete, onComplete }) {
+export function TaskList({ task, onDelete, onComplete }) {
   return (
     <div className={styles.task}>
       <button className={styles.checkContainer} onClick={() => onComplete(task.id)}>
